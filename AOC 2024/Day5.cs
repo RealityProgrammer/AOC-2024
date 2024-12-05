@@ -1,7 +1,4 @@
-﻿using System.Diagnostics;
-using System.Runtime.InteropServices;
-
-namespace AOC_2024;
+﻿namespace AOC_2024;
 
 public sealed class Day5 : AocTask {
     public override (object Part1, object Part2) Execute() {
