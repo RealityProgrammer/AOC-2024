@@ -1,9 +1,11 @@
 ﻿using AOC_2024;
 using System.Reflection;
 
+Type[] dayTasks = Assembly.GetExecutingAssembly().GetTypes().Where(x => x.IsSubclassOf(typeof(AocTask))).ToArray();
+
 Console.WriteLine("Hello, World!");
 
-Type taskType;
+Type? taskType;
 
 while (true) {
     Console.Write("Input day: ");
@@ -12,8 +14,8 @@ while (true) {
         Console.WriteLine("Invalid day! Input must be an positive integer!");
         continue;
     }
-    
-    taskType = Assembly.GetExecutingAssembly().GetType($"AOC_2024.Day{day}")!;
+
+    taskType = dayTasks.FirstOrDefault(x => x.Name == $"Day{day}");
 
     if (taskType != null) {
         break;
